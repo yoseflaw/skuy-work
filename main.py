@@ -19,8 +19,8 @@ def home():
                     <script type="module">
                         import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
                         Chatbot.initFull({
-                            chatflowid: \"""" + chatflow_id + """\",
-                            apiHost: \"""" + chatflow_host + """\",
+                            chatflowid: "5c3aa360-7c72-4c06-a2b5-2fac729df462",
+                            apiHost: "https://flow-vl9b.onrender.com",
                         })
                     </script>
             """)
