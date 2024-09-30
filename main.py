@@ -11,7 +11,7 @@ def home():
     return Titled("",
         P("Let's do this!"),
         Ul(
-            Li(A("Desy on the job hunt", href="/u/desy")),
+            Li(A("Desy on the job hunt", href="/chat/desy")),
             Li(A("I want a bot too!", href="https://docs.google.com/forms/d/e/1FAIpQLSfGvM9qBK6R_EBbuNbY4FPzFOwqmfYohhKTahbNm4M7k3M_9w/viewform"))
         )
     )
