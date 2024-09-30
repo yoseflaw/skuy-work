@@ -6,15 +6,21 @@ import os
 from fasthtml.common import *
 app, rt = fast_app()
 
+
 @app.get("/")
 def home():
-    return Titled("",
-        P("Let's do this!"),
+    return Titled("Skuy.ai",
+        P("Create a chatbot tailored to your needs!"),
         Ul(
-            Li(A("Desy on the job hunt", href="/chat/desy")),
-            Li(A("I want a bot too!", href="https://docs.google.com/forms/d/e/1FAIpQLSfGvM9qBK6R_EBbuNbY4FPzFOwqmfYohhKTahbNm4M7k3M_9w/viewform"))
+            Li(P(*[Span("Checkout our first work: "), A("Desy on the job hunt", href="/chat/desy")])),
+            Li(P(*[Span("Want to create a bot? "), A("Let's talk!", href="https://docs.google.com/forms/d/e/1FAIpQLSfGvM9qBK6R_EBbuNbY4FPzFOwqmfYohhKTahbNm4M7k3M_9w/viewform")]))
         )
     )
+
+# For images, CSS, etc.
+@app.get("/{fname:path}.{ext:static}")
+def static(fname: str, ext: str):
+  return FileResponse(f'{fname}.{ext}')
 
 @app.get("/chat/desy")
 def work_chat():
