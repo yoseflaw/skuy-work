@@ -35,7 +35,7 @@ def work_chat():
                             chatWindow: {
                                 showTitle: true,
                                 title: 'Moli',
-                                titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
+                                titleAvatarSrc: 'https://github.com/yoseflaw/skuy-work/raw/main/assets/images/moli.jpeg',
                                 showAgentMessages: true,
                                 welcomeMessage: 'G\\'day! Before we start, may I ask your name and the company you work at? 😊',
                                 errorMessage: 'Something is wrong, please try again',
