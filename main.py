@@ -16,7 +16,7 @@ def home():
         )
     )
 
-@app.get("/u/desy")
+@app.get("/chat/desy")
 def work_chat():
     chatflow_id = os.getenv("CHATFLOW_ID")
     chatflow_host = os.getenv("CHATFLOW_HOST")
