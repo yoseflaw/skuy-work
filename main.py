@@ -4,22 +4,28 @@ load_dotenv(override=True)
 import os
 
 from fasthtml.common import *
-app = FastHTML()
+app, rt = fast_app()
 
 @app.get("/")
 def home():
+    return Titled("",
+        P("Let's do this!"),
+        Ul(
+            Li(A("Desy on the job hunt", href="/u/desy")),
+            Li(A("I want a bot too!", href="https://docs.google.com/forms/d/e/1FAIpQLSfGvM9qBK6R_EBbuNbY4FPzFOwqmfYohhKTahbNm4M7k3M_9w/viewform"))
+        )
+    )
+
+@app.get("/u/desy")
+def work_chat():
     chatflow_id = os.getenv("CHATFLOW_ID")
     chatflow_host = os.getenv("CHATFLOW_HOST")
     print(chatflow_id, chatflow_host)
-    page = Html(
-        Head(Title('Desy on the job hunt')),
-        Body(
+    page = (
+        Title("Desy on the job hunt"),
+        Div(
             NotStr("""
-                <div id="outer" style="width:100%; display: flex;justify-content: center;">
-                    <div id="inner" style="border: 0.05em solid black;">
-                        <flowise-fullchatbot></flowise-fullchatbot>
-                    </div>
-                </div>
+                <flowise-fullchatbot></flowise-fullchatbot>
                 <script type="module">
                     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
                     Chatbot.initFull({
@@ -34,24 +40,16 @@ def home():
                                 welcomeMessage: 'G\\'day! Before we start, may I ask your name and the company you work at? 😊',
                                 errorMessage: 'Something is wrong, please try again',
                                 backgroundColor: "#ffffff",
-                                //backgroundImage: 'enter image path or link', // If set, this will overlap the background color of the chat window.
-                                height: 700,
-                                width: 400,
-                                fontSize: 16,
-                                //starterPrompts: ['What is a bot?', 'Who are you?'], // It overrides the starter prompts set by the chat flow passed
-                                //starterPromptFontSize: 15,
-                                clearChatOnReload: false, // If set to true, the chat will be cleared when the page reloads.
+                                clearChatOnReload: false,
                                 botMessage: {
                                     backgroundColor: "#f7f8ff",
                                     textColor: "#303235",
-                                    showAvatar: true,
-                                    avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png",
+                                    showAvatar: false
                                 },
                                 userMessage: {
                                     backgroundColor: "#3B81F6",
                                     textColor: "#ffffff",
-                                    showAvatar: true,
-                                    avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
+                                    showAvatar: false
                                 },
                                 textInput: {
                                     placeholder: 'Type your question',
@@ -60,11 +58,9 @@ def home():
                                     sendButtonColor: '#3B81F6',
                                     maxChars: 200,
                                     maxCharsWarningMessage: 'You exceeded the characters limit. Please input less than 200 characters.',
-                                    autoFocus: true, // If not used, autofocus is disabled on mobile and enabled on desktop. true enables it on both, false disables it on both.
+                                    autoFocus: true,
                                     sendMessageSound: true,
-                                    // sendSoundLocation: "send_message.mp3", // If this is not used, the default sound effect will be played if sendSoundMessage is true.
-                                    receiveMessageSound: true,
-                                    // receiveSoundLocation: "receive_message.mp3", // If this is not used, the default sound effect will be played if receiveSoundMessage is true. 
+                                    receiveMessageSound: true, 
                                 },
                                 feedback: {
                                     color: '#303235',
@@ -79,7 +75,8 @@ def home():
                         }
                     })
                 </script>
-            """)
+            """),
+            id="main-container"
         )
     )
     return page
