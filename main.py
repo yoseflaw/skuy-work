@@ -65,8 +65,7 @@ def work_chat():
                                     maxChars: 200,
                                     maxCharsWarningMessage: 'You exceeded the characters limit. Please input less than 200 characters.',
                                     autoFocus: true,
-                                    sendMessageSound: true,
-                                    receiveMessageSound: true, 
+                                    sendMessageSound: true
                                 },
                                 feedback: {
                                     color: '#303235',
