@@ -10,11 +10,18 @@ app, rt = fast_app()
 @app.get("/")
 def home():
     return Titled("Skuy.ai",
-        P("Create a chatbot tailored to your needs!"),
-        Ul(
-            Li(P(*[Span("Checkout our first work: "), A("Desy on the job hunt", href="/chat/desy")])),
-            Li(P(*[Span("Want to create a bot? "), A("Let's talk!", href="https://docs.google.com/forms/d/e/1FAIpQLSfGvM9qBK6R_EBbuNbY4FPzFOwqmfYohhKTahbNm4M7k3M_9w/viewform")]))
-        )
+        H3("Create a chatbot that fits your needs!"),
+        P("Whether it’s for business, personal projects, or customer support, we will help you design, train, and deploy your own custom chatbot."), 
+        P("Start building conversations that matter today!"),
+        A("Contact Us", href="https://docs.google.com/forms/d/e/1FAIpQLSfGvM9qBK6R_EBbuNbY4FPzFOwqmfYohhKTahbNm4M7k3M_9w/viewform"),
+        H3("Checkout our work: "), 
+        Ul(Li(A("Desy on the job hunt", href="/chat/desy"))),
+        H3("Want to create a bot?"),
+        Ol(*[
+           Li(*[Span("Fill out "), A("this form", href="https://docs.google.com/forms/d/e/1FAIpQLSfGvM9qBK6R_EBbuNbY4FPzFOwqmfYohhKTahbNm4M7k3M_9w/viewform")]),
+           Li("Our team will contact you"),
+           Li("Sit back and relax as we build the chatbot for you!")
+        ])
     )
 
 # For images, CSS, etc.
