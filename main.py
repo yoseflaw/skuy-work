@@ -50,7 +50,7 @@ def work_chat():
                                 title: 'Moli',
                                 titleAvatarSrc: 'https://github.com/yoseflaw/skuy-work/raw/main/assets/images/moli.jpeg',
                                 showAgentMessages: true,
-                                welcomeMessage: 'G\\'day! Before we start, may I ask your name and the company you work at? 😊',
+                                welcomeMessage: 'G\\'day! I\\'m Moli, Desy\\'s virtual assistant. I\\’m excited to share more about Desy\\'s professional journey with you. Before we start, may I ask your name and the company you work at? 😊',
                                 errorMessage: 'Something is wrong, please try again',
                                 backgroundColor: "#ffffff",
                                 clearChatOnReload: false,
